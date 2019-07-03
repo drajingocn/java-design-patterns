@@ -1,7 +1,7 @@
 
 version: '0.1'
-name: java-design-patterns-clone
-Github: github.com/trilogy-group/java-design-patterns-clone.git
+name: java-design-patterns
+Github: github.com/drajingocn/java-design-patterns.git
 Branch: master
 Module-flag: true
 modules:

@@ -1,0 +1,53 @@
+version: '2'
+name: jdp-collection
+
+images:
+- name: firm58-dev-img
+  url: registry2.swarm.devfactory.com/aurea/firm58/firm58-dev-ds-img:v2
+- name: firm58-dev-kafka
+  url: registry2.swarm.devfactory.com/aurea/firm58/kafka
+- name: firm58-dev-oradb11g
+  url: registry2.swarm.devfactory.com/aurea/firm58/oracledb11g:latest
+  
+configs:
+- name: firm58-dev-cfg
+  containers:
+  - name: firm58-dev
+    image: firm58-dev-img
+    command:
+    - tail
+    args:
+    - -f
+    - /dev/null
+    volumes:
+    - host_path: ''
+      container_path: /data
+    ports:
+    # RS Server port
+    - port: 8080
+      protocol: TCP
+    # Reserved remote debugging port
+    - port: 5005
+      protocol: TCP
+  - name: firm58-dev-kafka
+    image: firm58-dev-kafka
+    ports:
+    - port: 9092
+      protocol: TCP
+    - port: 2181
+      protocol: TCP
+    - port: 9992
+      protocol: TCP
+    - port: 9993
+      protocol: TCP
+  - name: firm58-dev-oradb11g
+    image: firm58-dev-oradb11g
+    command:
+    - ./entrypoint.sh
+    ports:
+    - port: 1521
+      protocol: TCP
+    env:
+    - name: DBCA_TOTAL_MEMORY
+      value: '4096'
+
