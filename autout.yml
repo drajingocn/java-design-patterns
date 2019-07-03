@@ -4,6 +4,7 @@ name: java-design-patterns
 Github: github.com/drajingocn/java-design-patterns.git
 Branch: master
 Module-flag: true
+Custom-jar-command: java -jar custom.jar --src=${SOURCE} --out=${OUTPUT}
 modules:
   -
     mainSourcePath: queue-load-leveling
