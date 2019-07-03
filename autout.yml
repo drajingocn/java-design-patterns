@@ -1,0 +1,20 @@
+
+version: '0.1'
+name: java-design-patterns-clone
+Github: github.com/trilogy-group/java-design-patterns-clone.git
+Branch: master
+Module-flag: true
+modules:
+  -
+    mainSourcePath: queue-load-leveling
+    generatedSourcePath: queue-load-leveling/src/test-gen/java
+    patternsToApply:
+      - OpenPojo
+      - Delegation
+  -
+    mainSourcePath: command
+    generatedSourcePath: command/src/test-gen/java
+    patternsToApply:
+      - OpenPojo
+      - Delegation
+

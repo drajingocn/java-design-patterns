@@ -1,0 +1,11 @@
+
+build:
+  - mvn clean
+
+run:
+  - mvn clean install
+
+test:
+- mvn test
+
+
